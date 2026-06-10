@@ -1,0 +1,29 @@
+{
+  "name": "creative-brief-to-go-v2",
+  "version": "2.0.0",
+  "description": "One Box Magic - Creative Brief Generation with Perplexity AI",
+  "main": "netlify/functions/generate-brief.js",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Ready for Netlify'",
+    "functions": "netlify functions:invoke"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  },
+  "keywords": [
+    "creative",
+    "brief",
+    "storytelling",
+    "ai",
+    "perplexity"
+  ],
+  "author": "Marcel Haupt",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  }
+}
