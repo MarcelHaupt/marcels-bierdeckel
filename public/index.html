@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Brief To Go - Marcel Haupt Method</title>
+    
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #FF4C4C;
+            --color-background: #FFFFFF;
+            --color-text: #000000;
+            --color-text-secondary: #666666;
+            --color-border: #EEEEEE;
+            --color-success: #4CAF50;
+            --color-error: #F44336;
+            --font-display: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            --radius: 8px;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        h1 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .intro-text {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: rgba(255, 76, 76, 0.05);
+            border-radius: var(--radius);
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .privacy-note {
+            font-size: 0.85rem;
+            color: #666;
+            text-align: center;
+            margin-top: var(--spacing-md);
+            padding: var(--spacing-sm);
+            background: #F5F5F5;
+            border-radius: var(--radius);
+        }
+
+        /* ============================================
+           INPUT SECTION
+           ============================================ */
+
+        #inputSection {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-text);
+            display: block;
+        }
+
+        textarea {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            padding: var(--spacing-md);
+            border: 2px solid var(--color-border);
+            border-radius: var(--radius);
+            background: var(--color-background);
+            color: var(--color-text);
+            resize: vertical;
+            min-height: 180px;
+            transition: border-color 0.3s ease;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 76, 76, 0.1);
+        }
+
+        textarea::placeholder {
+            color: var(--color-text-secondary);
+        }
+
+        .textarea-hint {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: calc(var(--spacing-xs) * -1);
+        }
+
+        /* ============================================
+           BUTTONS
+           ============================================ */
+
+        .button-group {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: var(--spacing-md) var(--spacing-lg);
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(255, 76, 76, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--color-background);
+            color: var(--color-text);
+            border: 2px solid var(--color-border);
+            min-width: 150px;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+            background: rgba(255, 76, 76, 0.05);
+        }
+
+        .btn-small {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.9rem;
+            min-width: auto;
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* ============================================
+           LOADING STATE
+           ============================================ */
+
+        #loadingSection {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--color-border);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto var(--spacing-md);
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           RESULTS SECTION
+           ============================================ */
+
+        #resultsSection {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        #resultsSection.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .results-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        #briefTimestamp {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* Input Display Section */
+        #inputDisplaySection {
+            display: none;
+            margin-bottom: var(--spacing-lg);
+            background: #F9F9F9;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            overflow: hidden;
+        }
+
+        .input-display-toggle {
+            width: 100%;
+            padding: var(--spacing-md);
+            background: #F5F5F5;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--color-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+
+        .input-display-toggle:hover {
+            background: #EEEEEE;
+        }
+
+        .input-display-toggle.active {
+            background: rgba(255, 76, 76, 0.1);
+            color: var(--color-primary);
+        }
+
+        .toggle-icon {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        #inputDisplayContent {
+            display: none;
+            padding: var(--spacing-md);
+            background: #FFFFFF;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.6;
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+
+        #inputDisplayContent.active {
+            display: block;
+        }
+
+        .brief-content {
+            background: #FAFAFA;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            border-left: 4px solid var(--color-primary);
+            margin-bottom: var(--spacing-lg);
+            line-height: 1.8;
+        }
+
+        #briefContent {
+            word-wrap: break-word;
+        }
+
+        #briefContent h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        #briefContent hr {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: var(--spacing-lg) 0;
+        }
+
+        #briefContent ul,
+        #briefContent ol {
+            margin: 0 0 var(--spacing-md) 1.4em;
+        }
+
+        #briefContent li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        #briefContent h2 {
+            color: var(--color-primary);
+            margin-top: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        #briefContent h3 {
+            color: var(--color-primary);
+            margin-top: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        #briefContent p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-text);
+        }
+
+        #briefContent strong {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        #briefContent em {
+            font-style: italic;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           ERROR SECTION
+           ============================================ */
+
+        #errorSection {
+            display: none;
+            background: #FFEBEE;
+            border: 2px solid var(--color-error);
+            border-radius: var(--radius);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        #errorSection.active {
+            display: block;
+        }
+
+        .error-title {
+            color: var(--color-error);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        #errorMessage {
+            color: var(--color-error);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* ============================================
+           RECENT BRIEFS SECTION
+           ============================================ */
+
+        #recentSection {
+            display: none;
+            margin-top: var(--spacing-xl);
+            padding-top: var(--spacing-lg);
+            border-top: 2px solid var(--color-border);
+        }
+
+        #recentSection.active {
+            display: block;
+        }
+
+        #recentSection h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        #briefHistory {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .brief-history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md);
+            background: #FAFAFA;
+            border-radius: var(--radius);
+            border-left: 3px solid var(--color-primary);
+            transition: background 0.3s ease;
+        }
+
+        .brief-history-item:hover {
+            background: #F5F5F5;
+        }
+
+        .brief-history-info {
+            flex: 1;
+        }
+
+        .brief-history-input {
+            font-weight: 700;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .brief-history-time {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-md);
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                min-width: unset;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-md);
+            }
+
+            textarea {
+                min-height: 150px;
+            }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>Creative Brief</h1>
+            <p class="subtitle" id="subtitle">Dein Creative Brief – erstellt mithilfe von Marcels Prozess.</p>
+            
+            <div class="intro-text" id="introText">
+                💡 <strong>Dein kreativer Sparringspartner</strong><br>
+                Gedankenchaos? Grobe Idee? Ich helfe dir, deine Gedanken zu sortieren und mit smarten Input in eine klare Strategie zu verwandeln.
+            </div>
+
+            <div class="privacy-note" id="privacyNote">
+                🔒 Für den Brief geht dein Text an die KI von Anthropic (Claude). Auf diesem Server wird nichts gespeichert. Deine letzten Briefs liegen nur hier in deinem Browser.
+            </div>
+        </header>
+
+        <!-- INPUT SECTION -->
+        <section id="inputSection">
+            <div class="input-group">
+                <label id="projectLabel">Dein Projekt in einer Box:</label>
+                
+                <textarea 
+                    id="projectInput"
+                    maxlength="8000"
+                    placeholder="Schreibe hier alles über dein Projekt auf. Je mehr Details, desto besser wird der Brief...">
+                </textarea>
+                <p class="textarea-hint" id="projectHint">💡 Tipps: Was ist das Projekt? Wer ist die Zielgruppe? Was sind die Ziele?</p>
+
+                <label id="milestonesLabel">Meilensteine & Next Steps (optional):</label>
+                
+                <textarea 
+                    id="milestonesInput"
+                    maxlength="3000"
+                    placeholder="Optional: Wünsche, konkrete Timings, Schulterblicke, Meilensteine...">
+                </textarea>
+                <p class="textarea-hint" id="milestonesHint">💡 Dies hilft, den Brief noch präziser auf deine Bedürfnisse abzustimmen.</p>
+
+                <div class="button-group">
+                    <button class="btn-primary" onclick="generateBrief()">
+                        <span id="btnText">✨ Brief erstellen</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LOADING STATE -->
+        <section id="loadingSection">
+            <div class="spinner"></div>
+            <p class="loading-text" id="loadingText">Dein Brief wird gerade erstellt...</p>
+        </section>
+
+        <!-- ERROR STATE -->
+        <section id="errorSection">
+            <div class="error-title" id="errorTitle">Fehler</div>
+            <p id="errorMessage"></p>
+            <button class="btn-secondary" onclick="startOver()">
+                <span id="errorBackBtn">← Zurück</span>
+            </button>
+        </section>
+
+        <!-- RESULTS SECTION -->
+        <section id="resultsSection">
+            <div class="results-header">
+                <h2 id="resultsTitle">Dein Creative Brief</h2>
+                <div id="briefTimestamp"></div>
+            </div>
+
+            <!-- Input Display (Collapsible) -->
+            <div id="inputDisplaySection">
+                <button class="input-display-toggle" onclick="toggleInputDisplay()">
+                    <span id="inputDisplayLabel">📋 Dein Input anzeigen</span>
+                    <span class="toggle-icon">▼</span>
+                </button>
+                <div id="inputDisplayContent"></div>
+            </div>
+
+            <div class="brief-content">
+                <div id="briefContent"></div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary btn-small" onclick="copyBrief()">
+                    <span id="copyBtn">📋 Kopieren</span>
+                </button>
+                <button class="btn-secondary btn-small" onclick="exportBrief()">
+                    <span id="exportBtn">⬇️ Herunterladen</span>
+                </button>
+                <button class="btn-secondary btn-small" onclick="emailBrief()">
+                    <span id="emailBtn">📧 Email</span>
+                </button>
+                <button class="btn-secondary btn-small" onclick="startOver()">
+                    <span id="newBtn">+ Neuer Brief</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- RECENT BRIEFS -->
+        <section id="recentSection">
+            <h3 id="recentTitle">📚 Deine letzten Briefs</h3>
+            <div id="briefHistory"></div>
+        </section>
+    </div>
+
+    <script>
+        // Language detection based on system preference
+        let currentLanguage = 'de';
+
+        // Detect system language on load
+        function detectSystemLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            currentLanguage = browserLang.startsWith('de') ? 'de' : 'en';
+            updateLanguageTexts();
+        }
+
+        const translations = {
+            de: {
+                subtitle: 'Dein Creative Brief – erstellt mithilfe von Marcels Prozess.',
+                introText: '💡 <strong>Dein kreativer Sparringspartner</strong><br>Gedankenchaos? Grobe Idee? Ich helfe dir, deine Gedanken zu sortieren und mit smarten Input in eine klare Strategie zu verwandeln.',
+                privacyNote: '🔒 Für den Brief geht dein Text an die KI von Anthropic (Claude). Auf diesem Server wird nichts gespeichert. Deine letzten Briefs liegen nur hier in deinem Browser.',
+                projectLabel: 'Dein Projekt in einer Box:',
+                projectHint: '💡 Tipps: Was ist das Projekt? Wer ist die Zielgruppe? Was sind die Ziele?',
+                milestonesLabel: 'Meilensteine & Next Steps (optional):',
+                milestonesHint: '💡 Dies hilft, den Brief noch präziser auf deine Bedürfnisse abzustimmen.',
+                placeholder: 'Schreibe hier alles über dein Projekt auf. Je mehr Details, desto besser wird der Brief...',
+                milestonesPlaceholder: 'Optional: Wünsche, konkrete Timings, Schulterblicke, Meilensteine...',
+                btnText: '✨ Brief erstellen',
+                loadingText: 'Dein Brief wird gerade erstellt...',
+                errorTitle: 'Fehler',
+                errorBackBtn: '← Zurück',
+                resultsTitle: 'Dein Creative Brief',
+                inputDisplayLabel: '📋 Dein Input anzeigen',
+                copyBtn: '📋 Kopieren',
+                exportBtn: '⬇️ Herunterladen',
+                emailBtn: '📧 Email',
+                newBtn: '+ Neuer Brief',
+                recentTitle: '📚 Deine letzten Briefs',
+                copiedMsg: 'Brief in Zwischenablage kopiert! ✅',
+                viewBtn: 'Anzeigen'
+            },
+            en: {
+                subtitle: 'Your Creative Brief using the Marcel Haupt Method',
+                introText: '💡 <strong>Your Creative Sparring Partner</strong><br>Thought chaos? Rough idea? I help you sort your thoughts and turn them into a clear strategy with smart input.',
+                privacyNote: '🔒 To write the brief, your text is sent to Anthropic’s AI (Claude). Nothing is stored on this server. Your recent briefs stay in this browser only.',
+                projectLabel: 'Your Project in One Box:',
+                projectHint: '💡 Tips: What is the project? Who is your audience? What are the goals?',
+                milestonesLabel: 'Milestones & Next Steps (optional):',
+                milestonesHint: '💡 This helps make the brief even more tailored to your needs.',
+                placeholder: 'Write everything about your project here. The more details, the better the brief...',
+                milestonesPlaceholder: 'Optional: Wishes, specific timings, shoulder glances, milestones...',
+                btnText: '✨ Generate Brief',
+                loadingText: 'Creating your brief...',
+                errorTitle: 'Error',
+                errorBackBtn: '← Back',
+                resultsTitle: 'Your Creative Brief',
+                inputDisplayLabel: '📋 Show Your Input',
+                copyBtn: '📋 Copy',
+                exportBtn: '⬇️ Download',
+                emailBtn: '📧 Email',
+                newBtn: '+ New Brief',
+                recentTitle: '📚 Your Recent Briefs',
+                copiedMsg: 'Brief copied to clipboard! ✅',
+                viewBtn: 'View'
+            }
+        };
+
+        function updateLanguageTexts() {
+            const t = translations[currentLanguage];
+            
+            document.getElementById('subtitle').textContent = t.subtitle;
+            document.getElementById('introText').innerHTML = t.introText;
+            document.getElementById('privacyNote').textContent = t.privacyNote;
+            document.getElementById('projectLabel').textContent = t.projectLabel;
+            document.getElementById('projectHint').textContent = t.projectHint;
+            document.getElementById('milestonesLabel').textContent = t.milestonesLabel;
+            document.getElementById('milestonesHint').textContent = t.milestonesHint;
+            document.getElementById('projectInput').placeholder = t.placeholder;
+            document.getElementById('milestonesInput').placeholder = t.milestonesPlaceholder;
+            document.getElementById('btnText').textContent = t.btnText;
+            document.getElementById('loadingText').textContent = t.loadingText;
+            document.getElementById('errorTitle').textContent = t.errorTitle;
+            document.getElementById('errorBackBtn').textContent = t.errorBackBtn;
+            document.getElementById('resultsTitle').textContent = t.resultsTitle;
+            document.getElementById('inputDisplayLabel').textContent = t.inputDisplayLabel;
+            document.getElementById('copyBtn').textContent = t.copyBtn;
+            document.getElementById('exportBtn').textContent = t.exportBtn;
+            document.getElementById('emailBtn').textContent = t.emailBtn;
+            document.getElementById('newBtn').textContent = t.newBtn;
+            document.getElementById('recentTitle').textContent = t.recentTitle;
+        }
+
+        // ============================================
+        // HELPERS
+        // ============================================
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function renderInline(text) {
+            return text
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, '$1<em>$2</em>');
+        }
+
+        // Kleiner, sicherer Markdown-Renderer: erst escapen, dann formatieren.
+        function renderMarkdown(md) {
+            const lines = escapeHtml(md).split('\n');
+            let html = '';
+            let para = [];
+            let list = null; // 'ul' | 'ol'
+
+            const flushPara = () => {
+                if (para.length) { html += '<p>' + para.map(renderInline).join('<br>') + '</p>'; para = []; }
+            };
+            const closeList = () => {
+                if (list) { html += '</' + list + '>'; list = null; }
+            };
+
+            for (const raw of lines) {
+                const line = raw.trim();
+                let m;
+                if (!line) { flushPara(); closeList(); continue; }
+                if ((m = line.match(/^(#{1,3})\s+(.*)$/))) {
+                    flushPara(); closeList();
+                    const level = m[1].length;
+                    html += `<h${level}>${renderInline(m[2])}</h${level}>`;
+                } else if (/^(-{3,}|\*{3,})$/.test(line)) {
+                    flushPara(); closeList();
+                    html += '<hr>';
+                } else if ((m = line.match(/^[-*•]\s+(.*)$/))) {
+                    flushPara();
+                    if (list !== 'ul') { closeList(); html += '<ul>'; list = 'ul'; }
+                    html += '<li>' + renderInline(m[1]) + '</li>';
+                } else if ((m = line.match(/^\d+[.)]\s+(.*)$/))) {
+                    flushPara();
+                    if (list !== 'ol') { closeList(); html += '<ol>'; list = 'ol'; }
+                    html += '<li>' + renderInline(m[1]) + '</li>';
+                } else {
+                    closeList();
+                    para.push(line);
+                }
+            }
+            flushPara(); closeList();
+            return html;
+        }
+
+        // ============================================
+        // HISTORY (bleibt nur im Browser)
+        // ============================================
+
+        const HISTORY_KEY = 'bierdeckelBriefs';
+        let briefHistory = [];
+
+        function loadHistory() {
+            try { briefHistory = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); }
+            catch (e) { briefHistory = []; }
+            if (!Array.isArray(briefHistory)) briefHistory = [];
+            updateBriefHistory();
+        }
+
+        function persistHistory() {
+            try { localStorage.setItem(HISTORY_KEY, JSON.stringify(briefHistory)); } catch (e) { /* privater Modus o.ä. */ }
+        }
+
+        // ============================================
+        // GENERATE (Streaming)
+        // ============================================
+
+        let isGenerating = false;
+
+        async function generateBrief() {
+            if (isGenerating) return;
+            const projectText = document.getElementById('projectInput').value.trim();
+            const milestonesText = document.getElementById('milestonesInput').value.trim();
+
+            if (!projectText) {
+                showError(currentLanguage === 'de'
+                    ? 'Bitte beschreibe dein Projekt zuerst!'
+                    : 'Please describe your project first!');
+                return;
+            }
+
+            isGenerating = true;
+            showLoading();
+
+            let brief = '';
+            let started = false;
+            let renderQueued = false;
+            const render = () => {
+                renderQueued = false;
+                document.getElementById('briefContent').innerHTML = renderMarkdown(brief);
+            };
+
+            try {
+                const response = await fetch('/.netlify/functions/generate-brief', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ projectText, milestonesText })
+                });
+
+                if (!response.ok || !response.body) {
+                    let msg = 'API Error ' + response.status;
+                    try { const data = await response.json(); if (data.error) msg = data.error; } catch (e) {}
+                    throw new Error(msg);
+                }
+
+                const lang = response.headers.get('X-Brief-Language');
+                if (lang === 'de' || lang === 'en') { currentLanguage = lang; updateLanguageTexts(); }
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                try {
+                    while (true) {
+                        const { done, value } = await reader.read();
+                        if (done) break;
+                        brief += decoder.decode(value, { stream: true });
+                        if (!started && brief.trim()) {
+                            started = true;
+                            displayBrief('', projectText, milestonesText);
+                        }
+                        if (started && !renderQueued) { renderQueued = true; requestAnimationFrame(render); }
+                    }
+                } catch (streamErr) {
+                    // Verbindung abgebrochen (z.B. Zeitlimit) – Teil-Brief behalten
+                    if (!brief.trim()) throw streamErr;
+                    brief += currentLanguage === 'de'
+                        ? '\n\n*[Verbindung abgebrochen – Brief ist unvollständig.]*'
+                        : '\n\n*[Connection lost – brief is incomplete.]*';
+                }
+
+                if (!brief.trim()) throw new Error(currentLanguage === 'de' ? 'Leere Antwort. Bitte nochmal versuchen.' : 'Empty response. Please try again.');
+
+                displayBrief(brief, projectText, milestonesText);
+                saveBriefToHistory(projectText, milestonesText, brief);
+            } catch (error) {
+                console.error('[ERROR]', error);
+                showError(error.message);
+            } finally {
+                isGenerating = false;
+            }
+        }
+
+        function displayBrief(brief, projectText, milestonesText) {
+            document.getElementById('briefContent').innerHTML = renderMarkdown(brief);
+
+            const inputDisplay = projectText + (milestonesText ? '\n\n--- MEILENSTEINE ---\n\n' + milestonesText : '');
+            document.getElementById('inputDisplayContent').textContent = inputDisplay;
+            document.getElementById('inputDisplaySection').style.display = 'block';
+
+            document.getElementById('briefTimestamp').textContent = new Date().toLocaleString(currentLanguage);
+
+            document.getElementById('inputSection').style.display = 'none';
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('errorSection').classList.remove('active');
+            document.getElementById('resultsSection').classList.add('active');
+        }
+
+        function toggleInputDisplay() {
+            const content = document.getElementById('inputDisplayContent');
+            const toggle = document.querySelector('.input-display-toggle');
+            const icon = toggle.querySelector('.toggle-icon');
+
+            content.classList.toggle('active');
+            toggle.classList.toggle('active');
+            icon.classList.toggle('open');
+        }
+
+        function showError(message) {
+            document.getElementById('errorMessage').textContent = message;
+
+            document.getElementById('inputSection').style.display = 'block';
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('errorSection').classList.add('active');
+        }
+
+        function showLoading() {
+            document.getElementById('inputSection').style.display = 'none';
+            document.getElementById('loadingSection').style.display = 'block';
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('errorSection').classList.remove('active');
+        }
+
+        function startOver() {
+            document.getElementById('projectInput').value = '';
+            document.getElementById('milestonesInput').value = '';
+            document.getElementById('inputSection').style.display = 'block';
+            document.getElementById('loadingSection').style.display = 'none';
+            document.getElementById('resultsSection').classList.remove('active');
+            document.getElementById('errorSection').classList.remove('active');
+            document.getElementById('projectInput').focus();
+        }
+
+        function copyBrief() {
+            const brief = document.getElementById('briefContent').innerText;
+            navigator.clipboard.writeText(brief).then(() => {
+                alert(translations[currentLanguage].copiedMsg);
+            });
+        }
+
+        function exportBrief() {
+            const brief = document.getElementById('briefContent').innerText;
+            const blob = new Blob([brief], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'creative-brief.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function emailBrief() {
+            const brief = document.getElementById('briefContent').innerText;
+            const subject = currentLanguage === 'de' ? 'Mein Creative Brief' : 'My Creative Brief';
+            window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(brief)}`;
+        }
+
+        function saveBriefToHistory(projectText, milestonesText, brief) {
+            briefHistory.unshift({
+                projectInput: projectText,
+                milestonesInput: milestonesText,
+                displayText: projectText.substring(0, 50) + (projectText.length > 50 ? '...' : ''),
+                brief: brief,
+                timestamp: new Date().toLocaleString(currentLanguage)
+            });
+            briefHistory = briefHistory.slice(0, 5);
+            persistHistory();
+            updateBriefHistory();
+        }
+
+        function updateBriefHistory() {
+            const historyDiv = document.getElementById('briefHistory');
+            historyDiv.innerHTML = '';
+
+            if (briefHistory.length === 0) {
+                document.getElementById('recentSection').classList.remove('active');
+                return;
+            }
+
+            document.getElementById('recentSection').classList.add('active');
+
+            briefHistory.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'brief-history-item';
+                itemDiv.innerHTML = `
+                    <div class="brief-history-info">
+                        <div class="brief-history-input">${escapeHtml(item.displayText)}</div>
+                        <div class="brief-history-time">${escapeHtml(item.timestamp)}</div>
+                    </div>
+                    <button class="btn-secondary btn-small" onclick="loadBriefFromHistory(${index})">
+                        ${translations[currentLanguage].viewBtn}
+                    </button>
+                `;
+                historyDiv.appendChild(itemDiv);
+            });
+        }
+
+        function loadBriefFromHistory(index) {
+            const item = briefHistory[index];
+            if (!item) return;
+            displayBrief(item.brief, item.projectInput, item.milestonesInput);
+            document.getElementById('briefTimestamp').textContent = item.timestamp;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Cmd/Ctrl + Enter startet die Generierung
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'Enter' && document.getElementById('inputSection').style.display !== 'none') {
+                generateBrief();
+            }
+        });
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            detectSystemLanguage();
+            loadHistory();
+        });
+    </script>
+</body>
+</html>

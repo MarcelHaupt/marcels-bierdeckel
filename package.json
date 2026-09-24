@@ -1,29 +1,23 @@
 {
-  "name": "creative-brief-to-go-v2",
-  "version": "2.0.0",
-  "description": "One Box Magic - Creative Brief Generation with Perplexity AI",
-  "main": "netlify/functions/generate-brief.js",
+  "name": "bierdeckel-creative-brief",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Bierdeckel x LEO – Creative Brief Generation mit Claude (Anthropic)",
   "scripts": {
-    "dev": "netlify dev",
-    "build": "echo 'Ready for Netlify'",
-    "functions": "netlify functions:invoke"
-  },
-  "dependencies": {
-    "axios": "^1.6.0"
-  },
-  "devDependencies": {
-    "netlify-cli": "^17.0.0"
+    "dev": "npx netlify-cli dev",
+    "deploy": "npx netlify-cli deploy --prod"
   },
   "keywords": [
     "creative",
     "brief",
     "storytelling",
     "ai",
-    "perplexity"
+    "claude",
+    "leo"
   ],
   "author": "Marcel Haupt",
   "license": "MIT",
   "engines": {
-    "node": "18.x"
+    "node": ">=20"
   }
 }
